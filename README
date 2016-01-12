@@ -1,0 +1,20 @@
+
+# HEAPO added F-STM library 
+F-STM 은 HEAPO의 키-밸류 자료구조(리스트,해시테이블,비트리) 연산 도중 발생하는 
+비정상적인 오류에 대한 유저 데이터 무결성 보장을 위해 사용하는 라이브러리다.
+F-STM은 TinySTM(Software Transactional Memory)에 기반해 구현되었다.
+
+# How to build environment
+F-STM의 디렉토리는 failsafe_dir_heapo/failsafe_dir_tiny 두개가 있다.
+heapo는 비휘발성 메모리 영역을 관리하는 미들웨어 플랫폼 소스코드이며,
+tiny는 F-STM 기능이 들어있는 TinySTM 소스코드이다.
+
+tiny 디렉토리로 들어가 make를 호출한 후 tool.sh/stm_tool.sh 를 실행시켜
+HEAPO가 F-STM을 사용하기 위한 인터페이스 및 라이브러리들을 F-STM 디렉토리로 이동시켜야 한다.
+tiny/src/stm_internal.h 에는 F-STM 관련 구현부 들이 있으므로 참조 바란다.
+
+HEAPO 디렉토리는 F-STM의 성능 및 동작을 확인하기 위한 소스코드가 들어있다.
+HEAPO_x86/KV_tiny/ 안에는 F-STM을 사용하여 구현한 키-밸류 라이브러리가 있으며,
+라이브러리의 동작 및 성능을 확인하기 위한 바이너리 파일(performance)가 들어있다.
+
+
